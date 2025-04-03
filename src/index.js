@@ -23,3 +23,28 @@ const reviews = [
 /////////////////////////////////////////////////////////////////////
 
 //Your Code Below Here////
+
+window.onload = () => {
+  renderReview();
+};
+
+let reviewSection = document.querySelector(".reviews");
+
+const renderReview = () => {
+  let username = document.createElement("p");
+  let image = document.createElement("p");
+  let star = document.createElement("p")
+
+  reviews.forEach(review => {
+    username.textContent = review.username;
+
+    console.log(review.username)
+    
+  });
+
+  
+  reviewSection.appendChild(username);
+
+
+
+}
