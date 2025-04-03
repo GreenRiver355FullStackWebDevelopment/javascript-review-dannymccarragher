@@ -28,23 +28,34 @@ window.onload = () => {
   renderReview();
 };
 
-let reviewSection = document.querySelector(".reviews");
 
 const renderReview = () => {
-  let username = document.createElement("p");
-  let image = document.createElement("p");
-  let star = document.createElement("p")
 
-  reviews.forEach(review => {
+  let reviewSection= document.querySelector(".reviews");
+
+  reviews.forEach((review) => {
+
+    const reviewContainer = document.createElement("div");
+    reviewContainer.className = "review_container";
+    let image = document.createElement("p");
+    let username = document.createElement("p");
+    let star = document.createElement("p");
+
     username.textContent = review.username;
-
-    console.log(review.username)
     
+
+    reviewContainer.appendChild(username);
   });
 
-  
-  reviewSection.appendChild(username);
+  reviewSection.appendChild(reviewContainer);
+};
 
 
-
-}
+{/* <div class="review_container">
+    <img src="img url here"/>
+    <div>
+      <p> username here </p>
+      <p> star rating here </p>
+      <p> review here </p>
+    <div>
+  </div> */}
