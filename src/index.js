@@ -33,21 +33,26 @@ const renderReview = () => {
 
   let reviewSection= document.querySelector(".reviews");
 
-  reviews.forEach((review) => {
+  reviews.forEach(review => {
 
     const reviewContainer = document.createElement("div");
     reviewContainer.className = "review_container";
-    let image = document.createElement("p");
+    let image = document.createElement("img");
+    image.src = review.image;
+
     let username = document.createElement("p");
     let star = document.createElement("p");
 
     username.textContent = review.username;
-    
 
+    reviewContainer.appendChild(image);
+    
     reviewContainer.appendChild(username);
+
+    reviewSection.appendChild(reviewContainer);
+
   });
 
-  reviewSection.appendChild(reviewContainer);
 };
 
 
