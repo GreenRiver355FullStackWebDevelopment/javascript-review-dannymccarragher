@@ -26,6 +26,7 @@ const reviews = [
 
 window.onload = () => {
   renderReview();
+  handleFormData();
 };
 
 
@@ -66,6 +67,19 @@ const renderReview = () => {
 
 };
 
+const handleFormData = () => {
+  // select form and gather the input values
+  let form = document.querySelector('form');
+  let username = document.querySelector("username").value;
+  let image = document.querySelector("image").value
+  let rating = document.querySelector("star").value
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    reviews.push(form);
+  })
+
+}
 
 /* <div class="review_container">
     <img src="img url here"/>
