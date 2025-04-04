@@ -29,22 +29,17 @@ window.onload = () => {
   handleFormData();
 };
 
-
-
 const renderReview = () => {
+  let reviewSection = document.querySelector(".reviews");
 
-
-  let reviewSection= document.querySelector(".reviews");
-
-  reviews.forEach(review => {
-
+  reviews.forEach((review) => {
     const reviewContainer = document.createElement("div");
-    // create DOM Elements 
+    // create DOM Elements
     reviewContainer.className = "review_container";
     let image = document.createElement("img");
     // set image src to url from reviews
     image.src = review.image;
-    let reviewDiv = document.createElement('div');
+    let reviewDiv = document.createElement("div");
     let username = document.createElement("p");
     let star = document.createElement("p");
     let reviewText = document.createElement("p");
@@ -64,35 +59,39 @@ const renderReview = () => {
 
     reviewSection.appendChild(reviewContainer);
     reviewContainer.appendChild(reviewDiv);
-
   });
-
 };
 
 const handleFormData = () => {
   // select form and gather the input values
-  let form = document.getElementsByTagName('form');
-  let username = document.getElementById("username").value;
-  let image = document.getElementById("image").value
-  let star = document.getElementById("star").value
-  let review = document.getElementById("review").value
+  let form = document.querySelector("form");
 
-  console.log(username);
-  console.log(star);
 
-  form.addEventListener("submit", function(event) {
+  form.addEventListener("submit", function (event) {
+
     event.preventDefault();
-    reviews.push({
-      username, 
+
+    let username = document.getElementById("username").value;
+    let image = document.getElementById("image").value;
+    let star = document.getElementById("star").value;
+    let review = document.getElementById("review").value;
+
+    let newReview = {
+      username,
       image,
       star,
-      review
-      }
+      review,
+    }
+    reviews.push(newReview);
+    console.log(newReview)
 
-    );
-  })
-
-}
+    // this clears review section to not allow duplicates on each reload
+    document.querySelector(".reviews").innerHTML = "";
+    
+    //rerender the new review Array
+    renderReview();
+  });
+};
 
 /* <div class="review_container">
     <img src="img url here"/>
