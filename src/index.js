@@ -1,3 +1,5 @@
+import { calculateStarAverage } from "./logic.js";
+
 //Do not change //////////////////////////////////
 const reviews = [
   {
@@ -28,6 +30,11 @@ window.onload = () => {
   renderReview();
   handleFormData();
 };
+
+const starAverage = () => {
+  const rating = document.querySelector("starRating");
+
+}
 
 const renderReview = () => {
   let reviewSection = document.querySelector(".reviews");
@@ -82,12 +89,13 @@ const handleFormData = () => {
       star,
       review,
     }
+
     reviews.push(newReview);
-    console.log(newReview)
+    // console.log(newReview)
 
     // this clears review section to not allow duplicates on each reload
     document.querySelector(".reviews").innerHTML = "";
-    
+
     //rerender the new review Array
     renderReview();
   });
