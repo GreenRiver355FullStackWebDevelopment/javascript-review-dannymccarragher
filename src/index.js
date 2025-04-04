@@ -29,11 +29,13 @@ const reviews = [
 window.onload = () => {
   renderReview();
   handleFormData();
+  starAverage();
 };
 
 const starAverage = () => {
-  const rating = document.querySelector("starRating");
+  let rating = document.querySelector(".starRating");
 
+  rating.textContent = "Star Rating: " + calculateStarAverage(reviews);
 }
 
 const renderReview = () => {
