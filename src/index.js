@@ -30,7 +30,9 @@ window.onload = () => {
 };
 
 
+
 const renderReview = () => {
+
 
   let reviewSection= document.querySelector(".reviews");
 
@@ -69,14 +71,25 @@ const renderReview = () => {
 
 const handleFormData = () => {
   // select form and gather the input values
-  let form = document.querySelector('form');
-  let username = document.querySelector("username").value;
-  let image = document.querySelector("image").value
-  let rating = document.querySelector("star").value
+  let form = document.getElementsByTagName('form');
+  let username = document.getElementById("username").value;
+  let image = document.getElementById("image").value
+  let star = document.getElementById("star").value
+  let review = document.getElementById("review").value
+
+  console.log(username);
+  console.log(star);
 
   form.addEventListener("submit", function(event) {
     event.preventDefault();
-    reviews.push(form);
+    reviews.push({
+      username, 
+      image,
+      star,
+      review
+      }
+
+    );
   })
 
 }
