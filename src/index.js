@@ -36,31 +36,42 @@ const renderReview = () => {
   reviews.forEach(review => {
 
     const reviewContainer = document.createElement("div");
+    // create DOM Elements 
     reviewContainer.className = "review_container";
     let image = document.createElement("img");
+    // set image src to url from reviews
     image.src = review.image;
-
+    let reviewDiv = document.createElement('div');
     let username = document.createElement("p");
     let star = document.createElement("p");
+    let reviewText = document.createElement("p");
 
-    username.textContent = review.username;
+    // set newly created DOM elements to the corresponding value from revies
+    username.textContent = "Username: " + review.username;
+    star.textContent = "Stars: " + review.star;
+    reviewText.textContent = "Review: " + review.review;
 
+    // correctly append each created element in the DOM Hiearchy
+
+    // image is appended to reviewContainer as is the highest object in the DOM for the section
     reviewContainer.appendChild(image);
-    
-    reviewContainer.appendChild(username);
+    reviewDiv.appendChild(username);
+    reviewDiv.appendChild(star);
+    reviewDiv.appendChild(reviewText);
 
     reviewSection.appendChild(reviewContainer);
+    reviewContainer.appendChild(reviewDiv);
 
   });
 
 };
 
 
-{/* <div class="review_container">
+/* <div class="review_container">
     <img src="img url here"/>
     <div>
       <p> username here </p>
       <p> star rating here </p>
       <p> review here </p>
     <div>
-  </div> */}
+  </div> */
