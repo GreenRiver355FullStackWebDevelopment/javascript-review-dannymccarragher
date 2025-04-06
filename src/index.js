@@ -82,7 +82,8 @@ const handleFormData = () => {
 
     let username = document.getElementById("username").value;
     let image = document.getElementById("image").value;
-    let star = document.getElementById("star").value;
+    // ensure star is being passed in as an int, not a string
+    let star = parseInt(document.getElementById("star").value);
     let review = document.getElementById("review").value;
 
     let newReview = {
@@ -100,6 +101,10 @@ const handleFormData = () => {
 
     //rerender the new review Array
     renderReview();
+
+    //recalcuate star average after pushing new review
+    starAverage();
+    
   });
 };
 
